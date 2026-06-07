@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VIZO OPTIC | Бесплатная проверка зрения и семейная оптика</title>
+  <meta name="description" content="VIZO OPTIC - семейная оптика с профессиональной диагностикой зрения, детским офтальмологом, современными линзами и большим выбором оправ.">
+  <meta name="keywords" content="VIZO OPTIC, оптика Казахстан, проверка зрения, детский офтальмолог, подбор очков, контактные линзы">
+  <meta property="og:title" content="VIZO OPTIC - семейная оптика, где заботятся о вашем зрении">
+  <meta property="og:description" content="Запишитесь на бесплатную проверку зрения и консультацию в VIZO OPTIC.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1200&q=85">
+  <meta property="og:locale" content="ru_KZ">
+  <meta name="theme-color" content="#F58220">
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Optician",
+      "name": "VIZO OPTIC",
+      "image": "https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1200&q=85",
+      "telephone": "+7 700 000 00 00",
+      "priceRange": "$$",
+      "medicalSpecialty": "Ophthalmology",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Укажите адрес салона",
+        "addressCountry": "KZ"
+      },
+      "sameAs": ["https://www.instagram.com/vizooptic"]
+    }
+  </script>
+  <style>
+    :root {
+      --orange: #F58220;
+      --charcoal: #252525;
+      --graphite: #3A3A3A;
+      --muted: #727272;
+      --ivory: #FFFDF9;
+      --mist: #F5F6F7;
+      --line: rgba(37, 37, 37, .09);
+      --shadow: 0 24px 80px rgba(37, 37, 37, .10);
+      --soft: 0 16px 46px rgba(37, 37, 37, .08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      color: var(--charcoal);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(245, 130, 32, .09), transparent 28rem),
+        linear-gradient(180deg, var(--ivory) 0%, #fff 48%, var(--mist) 100%);
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button, input, select, textarea { font: inherit; }
+    ::selection { background: rgba(245, 130, 32, .24); }
+
+    .container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .section { padding: 92px 0; }
+    .section.white { background: #fff; }
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--orange);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 760px;
+      margin-bottom: 24px;
+      font-size: clamp(40px, 5.7vw, 72px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+    h2 {
+      margin-bottom: 18px;
+      font-size: clamp(30px, 3.3vw, 46px);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+    h3 { font-size: 20px; line-height: 1.25; }
+    .lead { color: var(--graphite); font-size: 18px; line-height: 1.75; }
+    .center { max-width: 760px; margin: 0 auto 46px; text-align: center; }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 0;
+    }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: .04em; }
+    .brand-mark {
+      display: grid;
+      width: 46px;
+      height: 46px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--orange);
+      color: #fff;
+      font-size: 20px;
+    }
+    .nav { display: flex; gap: 30px; color: var(--graphite); font-size: 14px; font-weight: 700; }
+    .nav a:hover { color: var(--orange); }
+    .top-phone {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(37,37,37,.05);
+      font-weight: 800;
+      font-size: 14px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      gap: 58px;
+      align-items: center;
+      padding: 54px 0 76px;
+    }
+    .badge {
+      display: inline-flex;
+      margin-bottom: 22px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(37,37,37,.05);
+      color: var(--orange);
+      font-size: 14px;
+      font-weight: 800;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 34px; }
+    .btn {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border: 0;
+      border-radius: 999px;
+      padding: 14px 22px;
+      cursor: pointer;
+      font-weight: 800;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn.primary { background: var(--orange); color: #fff; box-shadow: var(--soft); }
+    .btn.primary:hover { background: #df741b; }
+    .btn.secondary { border: 1px solid var(--line); background: #fff; color: var(--charcoal); }
+    .btn.secondary:hover { color: var(--orange); border-color: rgba(245,130,32,.38); }
+    .hero-photo {
+      position: relative;
+      min-height: 560px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .hero-photo img, .image-card img, .future-photo img, .child-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero-note {
+      position: absolute;
+      right: 22px;
+      bottom: 22px;
+      width: min(300px, calc(100% - 44px));
+      border-radius: 8px;
+      background: rgba(255,255,255,.94);
+      padding: 18px;
+      box-shadow: var(--soft);
+      backdrop-filter: blur(10px);
+    }
+    .hero-note strong { display: block; margin-bottom: 6px; }
+    .hero-note p { margin: 0; color: var(--graphite); line-height: 1.55; font-size: 14px; }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 20px;
+    }
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 22px;
+      box-shadow: 0 8px 24px rgba(37,37,37,.04);
+    }
+    .stat strong { display: block; color: var(--orange); font-size: 34px; line-height: 1; }
+    .stat span { display: block; margin-top: 10px; color: var(--graphite); font-size: 14px; line-height: 1.5; }
+
+    .two-col { display: grid; grid-template-columns: .92fr 1.08fr; gap: 56px; align-items: center; }
+    .image-card, .future-photo { min-height: 470px; border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); }
+    .mission {
+      margin-top: 30px;
+      border-left: 4px solid var(--orange);
+      border-radius: 8px;
+      background: var(--mist);
+      padding: 24px;
+    }
+    .mission p { margin-bottom: 0; color: var(--graphite); line-height: 1.7; }
+
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .grid-5 { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+    .card {
+      min-height: 152px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      padding: 26px;
+      box-shadow: var(--soft);
+    }
+    .icon {
+      display: grid;
+      width: 52px;
+      height: 52px;
+      place-items: center;
+      margin-bottom: 20px;
+      border-radius: 50%;
+      background: rgba(245,130,32,.11);
+      color: var(--orange);
+      font-size: 24px;
+    }
+    .card h3 { margin-bottom: 0; }
+
+    .children-box {
+      display: grid;
+      grid-template-columns: 1fr .94fr;
+      overflow: hidden;
+      border-radius: 8px;
+      background: var(--charcoal);
+      box-shadow: var(--shadow);
+      color: #fff;
+    }
+    .children-copy { padding: 58px; }
+    .children-copy .lead { color: rgba(255,255,255,.78); }
+    .child-metric {
+      margin: 32px 0;
+      border-radius: 8px;
+      background: rgba(255,255,255,.10);
+      padding: 22px;
+    }
+    .child-metric strong { display: block; color: var(--orange); font-size: 46px; }
+    .child-metric span { color: rgba(255,255,255,.84); }
+    .child-photo { min-height: 520px; }
+
+    .review { min-height: 275px; background: var(--ivory); }
+    .stars { color: var(--orange); letter-spacing: .12em; margin-bottom: 18px; }
+    .review p { color: var(--graphite); line-height: 1.68; }
+    .review strong { display: block; margin-top: 18px; }
+    .social-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-height: 96px;
+      border-radius: 8px;
+      background: #fff;
+      padding: 22px;
+      box-shadow: 0 8px 26px rgba(37,37,37,.05);
+      font-weight: 800;
+    }
+    .value-card {
+      border-radius: 8px;
+      background: var(--charcoal);
+      padding: 26px;
+      color: #fff;
+      min-height: 156px;
+    }
+
+    .booking {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 54px;
+      align-items: start;
+    }
+    form {
+      border-radius: 8px;
+      background: #fff;
+      padding: 34px;
+      box-shadow: var(--shadow);
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    label { display: block; margin-bottom: 16px; font-size: 14px; font-weight: 800; }
+    input, select, textarea {
+      width: 100%;
+      margin-top: 8px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px 15px;
+      background: #fff;
+      color: var(--charcoal);
+      outline: none;
+    }
+    textarea { min-height: 132px; resize: vertical; }
+    input:focus, select:focus, textarea:focus { border-color: var(--orange); box-shadow: 0 0 0 4px rgba(245,130,32,.12); }
+    .success {
+      display: none;
+      margin: 18px 0 0;
+      border-radius: 8px;
+      background: rgba(245,130,32,.12);
+      padding: 16px;
+      font-weight: 800;
+    }
+    .success.show { display: block; }
+
+    footer {
+      background: var(--charcoal);
+      color: #fff;
+      padding: 54px 0;
+    }
+    .footer-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 40px; }
+    footer p, footer a { color: rgba(255,255,255,.76); line-height: 1.7; }
+    footer a:hover { color: #fff; }
+    .contact-list { display: grid; gap: 14px; }
+    iframe { width: 100%; height: 230px; border: 0; border-radius: 8px; filter: grayscale(.15); }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .delay-1 { transition-delay: .08s; }
+    .delay-2 { transition-delay: .16s; }
+
+    @media (max-width: 980px) {
+      .nav { display: none; }
+      .hero, .two-col, .children-box, .booking, .footer-grid { grid-template-columns: 1fr; }
+      .hero-photo, .image-card, .future-photo, .child-photo { min-height: 420px; }
+      .stats, .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .grid-3, .grid-5 { grid-template-columns: repeat(2, 1fr); }
+      .children-copy { padding: 38px; }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(100% - 28px, 1180px); }
+      .section { padding: 64px 0; }
+      .top-phone { display: none; }
+      .brand span:last-child { font-size: 15px; }
+      .hero { padding: 26px 0 56px; gap: 34px; }
+      h1 { font-size: 38px; }
+      h2 { font-size: 30px; }
+      .lead { font-size: 16px; }
+      .actions, .form-row { display: grid; grid-template-columns: 1fr; }
+      .btn { width: 100%; padding-left: 16px; padding-right: 16px; text-align: center; }
+      .hero-photo, .image-card, .future-photo, .child-photo { min-height: 330px; }
+      .stats, .grid-4, .grid-3, .grid-5 { grid-template-columns: 1fr; }
+      .children-copy, form { padding: 24px; }
+      .card, .value-card { min-height: auto; }
+    }
+  </style>
+</head>
+<body>
+  <header class="container topbar">
+    <a class="brand" href="#top" aria-label="VIZO OPTIC">
+      <span class="brand-mark">V</span>
+      <span>VIZO OPTIC</span>
+    </a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#services">Услуги</a>
+      <a href="#children">Детям</a>
+      <a href="#team">Команда</a>
+      <a href="#contact">Контакты</a>
+    </nav>
+    <a class="top-phone" href="tel:+77000000000">+7 700 000 00 00</a>
+  </header>
+
+  <main id="top">
+    <section class="container">
+      <div class="hero">
+        <div class="reveal visible">
+          <span class="badge">Бесплатная проверка зрения и консультация</span>
+          <h1>VIZO OPTIC - семейная оптика, где заботятся о вашем зрении</h1>
+          <p class="lead">Помогаем видеть мир ярче, четче и увереннее. Профессиональная диагностика зрения, современные линзы и большой выбор оправ для всей семьи.</p>
+          <div class="actions">
+            <a class="btn primary" href="#booking">Записаться на проверку зрения</a>
+            <a class="btn secondary" href="https://wa.me/77000000000">Получить консультацию</a>
+          </div>
+        </div>
+        <div class="hero-photo reveal visible delay-1">
+          <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1300&q=85" alt="Счастливая семья в стильных очках">
+          <div class="hero-note">
+            <strong>Диагностика для всей семьи</strong>
+            <p>Офтальмологи, оптометристы и современное оборудование в одном салоне.</p>
+          </div>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat reveal"><strong>12000+</strong><span>довольных клиентов</span></div>
+        <div class="stat reveal"><strong>3200+</strong><span>проверок зрения ежемесячно</span></div>
+        <div class="stat reveal"><strong>1800+</strong><span>изготовленных очков в месяц</span></div>
+        <div class="stat reveal"><strong>40+</strong><span>детей ежедневно проходят диагностику зрения</span></div>
+      </div>
+    </section>
+
+    <section class="section white" id="about">
+      <div class="container two-col">
+        <div class="image-card reveal">
+          <img src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&w=1200&q=85" alt="Специалист оптики помогает клиентке выбрать оправу">
+        </div>
+        <div class="reveal delay-1">
+          <p class="eyebrow">О компании</p>
+          <h2>Мы не просто продаем очки - мы помогаем людям видеть лучше</h2>
+          <p class="lead">VIZO OPTIC создана для того, чтобы помогать людям сохранять здоровье зрения и повышать качество жизни. Более трех лет опыта в оптической сфере позволили нам сформировать команду профессионалов и внедрить современные стандарты обслуживания клиентов.</p>
+          <div class="mission">
+            <h3>Миссия компании</h3>
+            <p>Помогать людям видеть лучше, устранять дискомфорт, связанный со зрением, и повышать качество жизни благодаря профессиональной диагностике, качественным линзам и правильно подобранным очкам.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="center reveal">
+          <p class="eyebrow">Почему выбирают</p>
+          <h2>VIZO OPTIC создает доверие с первого визита</h2>
+        </div>
+        <div class="grid-4">
+          <article class="card reveal"><span class="icon">+</span><h3>Квалифицированные офтальмологи</h3></article>
+          <article class="card reveal"><span class="icon">👁</span><h3>Детский офтальмолог</h3></article>
+          <article class="card reveal"><span class="icon">⌕</span><h3>Современное диагностическое оборудование</h3></article>
+          <article class="card reveal"><span class="icon">⌐</span><h3>Большой выбор оправ и линз</h3></article>
+          <article class="card reveal"><span class="icon">✓</span><h3>Пожизненное сервисное сопровождение</h3></article>
+          <article class="card reveal"><span class="icon">◇</span><h3>Индивидуальный подход к каждому клиенту</h3></article>
+          <article class="card reveal"><span class="icon">★</span><h3>Высокий уровень сервиса</h3></article>
+          <article class="card reveal"><span class="icon">♥</span><h3>Семейный формат обслуживания</h3></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section white" id="services">
+      <div class="container">
+        <div class="center reveal">
+          <p class="eyebrow">Наши услуги</p>
+          <h2>Все для здоровья зрения и комфортной коррекции</h2>
+        </div>
+        <div class="grid-4">
+          <article class="card reveal"><span class="icon">◉</span><h3>Проверка зрения</h3></article>
+          <article class="card reveal"><span class="icon">⌐</span><h3>Подбор очков</h3></article>
+          <article class="card reveal"><span class="icon">○</span><h3>Подбор контактных линз</h3></article>
+          <article class="card reveal"><span class="icon">👁</span><h3>Детская офтальмология</h3></article>
+          <article class="card reveal"><span class="icon">✦</span><h3>Прогрессивные линзы</h3></article>
+          <article class="card reveal"><span class="icon">▣</span><h3>Очки для работы за компьютером</h3></article>
+          <article class="card reveal"><span class="icon">☼</span><h3>Солнцезащитные очки</h3></article>
+          <article class="card reveal"><span class="icon">⚙</span><h3>Ремонт и сервис очков</h3></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="children">
+      <div class="container">
+        <div class="children-box reveal">
+          <div class="children-copy">
+            <p class="eyebrow">Детское зрение</p>
+            <h2>Заботимся о зрении детей с раннего возраста</h2>
+            <p class="lead">В нашей команде работает детский офтальмолог. Мы проводим специальные детские дни диагностики и помогаем своевременно выявлять проблемы зрения, включая прогрессирующую миопию.</p>
+            <div class="child-metric"><strong>40+</strong><span>детей ежедневно проходят диагностику зрения</span></div>
+            <a class="btn primary" href="#booking">Записать ребенка на прием</a>
+          </div>
+          <div class="child-photo">
+            <img src="https://images.unsplash.com/photo-1606788075761-71f7c5782ad4?auto=format&fit=crop&w=1200&q=85" alt="Ребенок в очках улыбается после проверки зрения">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section white">
+      <div class="container">
+        <div class="center reveal">
+          <p class="eyebrow">Истории клиентов</p>
+          <h2>Когда правильная диагностика меняет качество жизни</h2>
+        </div>
+        <div class="grid-4">
+          <article class="card review reveal"><div class="stars">*****</div><p>Проверили зрение всей семье, спокойно объяснили разницу между линзами и помогли выбрать оправы без давления.</p><strong>Айгерим</strong></article>
+          <article class="card review reveal"><div class="stars">*****</div><p>Очки для работы за компьютером сделали быстро. Глаза меньше устают, посадку оправы настроили идеально.</p><strong>Ерлан</strong></article>
+          <article class="card review reveal"><div class="stars">*****</div><p>Ребенку своевременно диагностировали прогрессирующую миопию. Благодаря раннему выявлению и правильно подобранной коррекции удалось замедлить развитие заболевания и сохранить качество зрения.</p><strong>Салтанат</strong></article>
+          <article class="card review reveal"><div class="stars">*****</div><p>Впервые почувствовала, что в оптике думают не только о продаже, а о комфорте зрения.</p><strong>Мария</strong></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="center reveal">
+          <p class="eyebrow">Социальная ответственность</p>
+          <h2>Мы помогаем не только клиентам, но и обществу</h2>
+        </div>
+        <div class="grid-3">
+          <div class="social-card reveal"><span class="icon">♥</span>Бесплатные проверки зрения</div>
+          <div class="social-card reveal"><span class="icon">♥</span>Поддержка пенсионеров</div>
+          <div class="social-card reveal"><span class="icon">♥</span>Льготные программы для учителей</div>
+          <div class="social-card reveal"><span class="icon">♥</span>Поддержка школьников</div>
+          <div class="social-card reveal"><span class="icon">♥</span>Помощь многодетным семьям</div>
+          <div class="social-card reveal"><span class="icon">♥</span>Участие в благотворительных проектах</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section white" id="team">
+      <div class="container">
+        <div class="center reveal">
+          <p class="eyebrow">Наша команда</p>
+          <h2>Специалисты, объединенные одной целью</h2>
+          <p class="lead">В VIZO OPTIC работает команда специалистов, объединенных одной целью - помогать людям видеть лучше.</p>
+        </div>
+        <div class="grid-3">
+          <article class="card reveal"><span class="icon">+</span><h3>Офтальмолог</h3></article>
+          <article class="card reveal"><span class="icon">👁</span><h3>Детский офтальмолог</h3></article>
+          <article class="card reveal"><span class="icon">◇</span><h3>Оптометристы</h3></article>
+          <article class="card reveal"><span class="icon">⚙</span><h3>Мастер по изготовлению очков</h3></article>
+          <article class="card reveal"><span class="icon">★</span><h3>Продавцы-консультанты</h3></article>
+          <article class="card reveal"><span class="icon">✓</span><h3>Маркетинг и сервис</h3></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="center reveal">
+          <p class="eyebrow">Наши ценности</p>
+          <h2>Принципы, на которых держится сервис</h2>
+        </div>
+        <div class="grid-5">
+          <article class="value-card reveal"><span class="icon">✓</span><h3>Профессионализм</h3></article>
+          <article class="value-card reveal"><span class="icon">+</span><h3>Забота о здоровье</h3></article>
+          <article class="value-card reveal"><span class="icon">◇</span><h3>Доступность качественного зрения</h3></article>
+          <article class="value-card reveal"><span class="icon">♥</span><h3>Семейные ценности</h3></article>
+          <article class="value-card reveal"><span class="icon">★</span><h3>Ответственность</h3></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section white">
+      <div class="container two-col">
+        <div class="reveal">
+          <p class="eyebrow">Планы на будущее</p>
+          <h2>Строим одну из лучших сетей оптик Казахстана</h2>
+          <p class="lead">В течение ближайших пяти лет мы планируем открыть более 10 салонов в нескольких городах Казахстана, внедрить выездную диагностику зрения и войти в ТОП-5 лучших оптических компаний страны.</p>
+        </div>
+        <div class="future-photo reveal delay-1">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=85" alt="Современная команда обсуждает развитие сети оптик">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="booking">
+      <div class="container booking">
+        <div class="reveal">
+          <p class="eyebrow">Запись</p>
+          <h2>Запишитесь на проверку зрения прямо сейчас</h2>
+          <p class="lead">Оставьте контакты, и специалист VIZO OPTIC подберет удобное время для диагностики или консультации.</p>
+          <div class="actions">
+            <a class="btn secondary" href="https://wa.me/77000000000">WhatsApp</a>
+            <a class="btn secondary" href="tel:+77000000000">Позвонить</a>
+          </div>
+        </div>
+        <form class="reveal delay-1" id="leadForm">
+          <div class="form-row">
+            <label>Имя<input name="name" required autocomplete="name"></label>
+            <label>Телефон<input name="phone" type="tel" required autocomplete="tel"></label>
+          </div>
+          <label>Выбор услуги
+            <select name="service">
+              <option>Проверка зрения</option>
+              <option>Подбор очков</option>
+              <option>Подбор контактных линз</option>
+              <option>Детская офтальмология</option>
+              <option>Прогрессивные линзы</option>
+              <option>Очки для работы за компьютером</option>
+            </select>
+          </label>
+          <label>Комментарий<textarea name="comment"></textarea></label>
+          <button class="btn primary" type="submit">Записаться</button>
+          <p class="success" id="successMessage">Спасибо за обращение. Наш специалист свяжется с вами в ближайшее время.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand" href="#top"><span class="brand-mark">V</span><span>VIZO OPTIC</span></a>
+        <p>Помогаем видеть мир ярче, четче и увереннее.</p>
+      </div>
+      <div class="contact-list">
+        <a href="tel:+77000000000">Телефон: +7 700 000 00 00</a>
+        <a href="https://wa.me/77000000000">WhatsApp: написать</a>
+        <a href="https://www.instagram.com/vizooptic">Instagram: @vizooptic</a>
+        <p>Адрес: укажите адрес салона VIZO OPTIC</p>
+        <div class="actions">
+          <a class="btn primary" href="https://wa.me/77000000000">WhatsApp</a>
+          <a class="btn secondary" href="tel:+77000000000">Звонок</a>
+        </div>
+      </div>
+      <iframe title="Карта VIZO OPTIC" src="https://www.google.com/maps?q=Kazakhstan&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
+
+    document.getElementById("leadForm").addEventListener("submit", (event) => {
+      event.preventDefault();
+      document.getElementById("successMessage").classList.add("show");
+      event.currentTarget.reset();
+    });
+
+    /* Google Analytics: замените G-XXXXXXXXXX на реальный ID и раскомментируйте.
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+    */
+
+    /* Meta Pixel: замените PIXEL_ID на реальный ID и раскомментируйте.
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+    (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'PIXEL_ID');
+    fbq('track', 'PageView');
+    */
+  </script>
+</body>
+</html>
