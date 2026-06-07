@@ -416,15 +416,18 @@
     }
     textarea { min-height: 124px; resize: vertical; }
     input:focus, select:focus, textarea:focus { border-color: var(--orange); box-shadow: 0 0 0 4px rgba(245,130,32,.12); }
-    .success {
+    .success,
+    .form-error {
       display: none;
       margin: 18px 0 0;
       border-radius: 12px;
-      background: rgba(245,130,32,.12);
       padding: 16px;
       font-weight: 900;
     }
+    .success { background: rgba(245,130,32,.12); }
+    .form-error { background: rgba(180, 22, 22, .10); color: #8d1616; }
     .success.show { display: block; }
+    .form-error.show { display: block; }
 
     footer {
       background: #151515;
@@ -651,18 +654,22 @@
             <label>Имя<input name="name" required autocomplete="name"></label>
             <label>Телефон<input name="phone" type="tel" required autocomplete="tel"></label>
           </div>
-          <label>Выбор услуги
-            <select name="service">
-              <option>Проверка зрения</option>
-              <option>Подбор очков</option>
-              <option>Подбор контактных линз</option>
-              <option>Детская офтальмология</option>
-              <option>Ремонт и сервис очков</option>
-            </select>
-          </label>
-          <label>Комментарий<textarea name="comment" placeholder="Например: хочу записать ребенка или подобрать очки для работы"></textarea></label>
+          <div class="form-row">
+            <label>Дата<input name="date" type="date" required></label>
+            <label>Время
+              <select name="time" required>
+                <option value="">Сначала выберите дату</option>
+              </select>
+            </label>
+          </div>
+          <p style="margin-top:-6px;color:var(--muted);font-size:14px;">
+            Проверка зрения длится 15 минут. Доступное время: с 09:00 до 18:30.
+          </p>
           <button class="btn primary" type="submit">Записаться</button>
-          <p class="success" id="successMessage">Спасибо за обращение. Наш специалист свяжется с вами в ближайшее время.</p>
+          <p class="success" id="successMessage">
+            Спасибо за обращение. Наш специалист свяжется с вами в ближайшее время.
+          </p>
+          <p class="form-error" id="errorMessage"></p>
         </form>
       </div>
     </section>
@@ -692,10 +699,94 @@
 
     document.querySelectorAll(".reveal").forEach((element) => observer.observe(element));
 
-    document.getElementById("leadForm").addEventListener("submit", (event) => {
+    const form = document.getElementById("leadForm");
+    const dateInput = form.elements.date;
+    const timeSelect = form.elements.time;
+    const successMessage = document.getElementById("successMessage");
+    const errorMessage = document.getElementById("errorMessage");
+
+    function buildFallbackSlots() {
+      const slots = [];
+      const start = 9 * 60;
+      const end = 18 * 60 + 30;
+
+      for (let minutes = start; minutes <= end; minutes += 15) {
+        const hours = String(Math.floor(minutes / 60)).padStart(2, "0");
+        const mins = String(minutes % 60).padStart(2, "0");
+        slots.push({ time: `${hours}:${mins}`, available: true });
+      }
+
+      return slots;
+    }
+
+    function renderSlots(slots) {
+      timeSelect.innerHTML = '<option value="">Выберите время</option>';
+      slots.forEach((slot) => {
+        const option = document.createElement("option");
+        option.value = slot.time;
+        option.textContent = slot.available ? slot.time : `${slot.time} - занято`;
+        option.disabled = !slot.available;
+        timeSelect.append(option);
+      });
+    }
+
+    async function loadSlots(date) {
+      timeSelect.disabled = true;
+      timeSelect.innerHTML = '<option value="">Загрузка времени...</option>';
+
+      try {
+        const response = await fetch(`/api/slots?date=${encodeURIComponent(date)}`);
+        if (!response.ok) throw new Error("Не удалось получить свободное время.");
+        const data = await response.json();
+        renderSlots(data.slots);
+      } catch (error) {
+        renderSlots(buildFallbackSlots());
+      } finally {
+        timeSelect.disabled = false;
+      }
+    }
+
+    const today = new Date();
+    dateInput.min = today.toISOString().slice(0, 10);
+
+    dateInput.addEventListener("change", () => {
+      successMessage.classList.remove("show");
+      errorMessage.classList.remove("show");
+      if (dateInput.value) loadSlots(dateInput.value);
+    });
+
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
-      document.getElementById("successMessage").classList.add("show");
-      event.currentTarget.reset();
+      successMessage.classList.remove("show");
+      errorMessage.classList.remove("show");
+
+      const payload = {
+        name: form.elements.name.value.trim(),
+        phone: form.elements.phone.value.trim(),
+        date: form.elements.date.value,
+        time: form.elements.time.value
+      };
+
+      try {
+        const response = await fetch("/api/bookings", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+        const data = await response.json();
+
+        if (!response.ok) {
+          throw new Error(data.error || "Не удалось создать запись.");
+        }
+
+        successMessage.textContent = data.message;
+        successMessage.classList.add("show");
+        form.reset();
+        timeSelect.innerHTML = '<option value="">Сначала выберите дату</option>';
+      } catch (error) {
+        errorMessage.textContent = error.message;
+        errorMessage.classList.add("show");
+      }
     });
   </script>
 </body>

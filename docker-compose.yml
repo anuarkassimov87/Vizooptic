@@ -1,0 +1,34 @@
+services:
+  app:
+    build: .
+    container_name: vizo-optic-app
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      DATABASE_URL: postgresql://vizo_user:vizo_password@db:5432/vizo_optic
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:17
+    container_name: vizo-optic-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: vizo_optic
+      POSTGRES_USER: vizo_user
+      POSTGRES_PASSWORD: vizo_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vizo_user -d vizo_optic"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  postgres_data:
