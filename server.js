@@ -56,6 +56,20 @@ async function initDb() {
 }
 
 app.use(express.json());
+
+app.use("/api", (req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+
+  if (req.method === "OPTIONS") {
+    res.sendStatus(204);
+    return;
+  }
+
+  next();
+});
+
 app.use("/assets", express.static(path.join(__dirname, "assets")));
 
 app.get("/", (_req, res) => {

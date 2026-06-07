@@ -705,18 +705,17 @@
     const successMessage = document.getElementById("successMessage");
     const errorMessage = document.getElementById("errorMessage");
 
-    function buildFallbackSlots() {
-      const slots = [];
-      const start = 9 * 60;
-      const end = 18 * 60 + 30;
+    function apiUrl(path) {
+      return window.location.protocol === "file:" ? `http://localhost:3000${path}` : path;
+    }
 
-      for (let minutes = start; minutes <= end; minutes += 15) {
-        const hours = String(Math.floor(minutes / 60)).padStart(2, "0");
-        const mins = String(minutes % 60).padStart(2, "0");
-        slots.push({ time: `${hours}:${mins}`, available: true });
-      }
+    function showError(message) {
+      errorMessage.textContent = message;
+      errorMessage.classList.add("show");
+    }
 
-      return slots;
+    function connectionErrorText() {
+      return "Не удалось подключиться к серверу записи. Запустите сайт через Docker: docker compose up --build, затем откройте http://localhost:3000";
     }
 
     function renderSlots(slots) {
@@ -733,21 +732,23 @@
     async function loadSlots(date) {
       timeSelect.disabled = true;
       timeSelect.innerHTML = '<option value="">Загрузка времени...</option>';
+      errorMessage.classList.remove("show");
 
       try {
-        const response = await fetch(`/api/slots?date=${encodeURIComponent(date)}`);
+        const response = await fetch(apiUrl(`/api/slots?date=${encodeURIComponent(date)}`));
         if (!response.ok) throw new Error("Не удалось получить свободное время.");
         const data = await response.json();
         renderSlots(data.slots);
-      } catch (error) {
-        renderSlots(buildFallbackSlots());
-      } finally {
         timeSelect.disabled = false;
+      } catch (error) {
+        timeSelect.innerHTML = '<option value="">Сервер записи недоступен</option>';
+        showError(connectionErrorText());
       }
     }
 
     const today = new Date();
-    dateInput.min = today.toISOString().slice(0, 10);
+    const timezoneOffset = today.getTimezoneOffset() * 60000;
+    dateInput.min = new Date(today.getTime() - timezoneOffset).toISOString().slice(0, 10);
 
     dateInput.addEventListener("change", () => {
       successMessage.classList.remove("show");
@@ -768,12 +769,12 @@
       };
 
       try {
-        const response = await fetch("/api/bookings", {
+        const response = await fetch(apiUrl("/api/bookings"), {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(payload)
         });
-        const data = await response.json();
+        const data = await response.json().catch(() => ({}));
 
         if (!response.ok) {
           throw new Error(data.error || "Не удалось создать запись.");
@@ -783,9 +784,12 @@
         successMessage.classList.add("show");
         form.reset();
         timeSelect.innerHTML = '<option value="">Сначала выберите дату</option>';
+        timeSelect.disabled = false;
       } catch (error) {
-        errorMessage.textContent = error.message;
-        errorMessage.classList.add("show");
+        const message = error instanceof TypeError || error.message === "Failed to fetch"
+          ? connectionErrorText()
+          : error.message;
+        showError(message);
       }
     });
   </script>
